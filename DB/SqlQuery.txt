@@ -1,0 +1,19 @@
+CREATE Database Login
+
+CREATE TABLE Users(
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [varchar](80) NOT NULL,
+	[Password] [varchar](100) NOT NULL,
+	[Status] [varchar](20) NOT NULL,
+	Primary Key(Id),
+) 
+
+
+Create table LoginLog(
+	Id int not null identity,
+	UserId int not null,
+	LoginDate date default getdate(),
+
+	Primary Key(Id),
+	Foreign Key(UserId) references Users(Id)
+)
